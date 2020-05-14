@@ -5,11 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 
 Article.delete_all
 
 10.times do
-  Article.create(title: 'The meaning of life', content: "It's 42!")
+  Article.create!(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph)
 end
 
 puts "Done seeding!"
